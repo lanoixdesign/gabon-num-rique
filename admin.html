@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      function isExtensionIssue(err) {
+        if (!err) return false;
+        var text = (typeof err === 'string') ? err : (err.message || err.description || (err.reason && (err.reason.message || err.reason.toString())) || String(err));
+        return /MetaMask|ethereum|Failed to connect to MetaMask/i.test(text);
+      }
+      window.addEventListener('unhandledrejection', function (event) {
+        if (isExtensionIssue(event.reason)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+      window.addEventListener('error', function (event) {
+        if (isExtensionIssue(event.message) || isExtensionIssue(event.error) || (event.filename && /chrome-extension|moz-extension/i.test(event.filename))) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administration | Gabon Digital Week 2026</title>
+  <meta name="description" content="Espace d'administration réservé au comité d'organisation du Gabon Digital Week 2026 (MENDI)." />
+
+  <!-- Google Fonts Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            gdw: {
+              vertNuit: '#064E2E',
+              vertProfond: '#006E3E',
+              vertLime: '#79B222',
+              jaune: '#FCD116',
+              vertDrapeau: '#009E60',
+              bleuDrapeau: '#3A75C4',
+              fond: '#F5F8F2',
+              surface: '#FFFFFF',
+              texte: '#10241A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .flag-ribbon {
+      height: 5px;
+      background: linear-gradient(to right, #009E60 33.33%, #FCD116 33.33%, #FCD116 66.66%, #3A75C4 66.66%);
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Filet tricolore officiel -->
+  <div class="flag-ribbon w-full sticky top-0 z-50"></div>
+
+  <!-- Authentification Gate (Écran de connexion si non connecté) -->
+  <div id="login-overlay" class="fixed inset-0 z-50 bg-slate-900 flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 border border-slate-300 relative overflow-hidden">
+      
+      <div class="h-1.5 w-full absolute top-0 left-0 right-0 flag-ribbon"></div>
+
+      <div class="text-center pt-2 pb-6">
+        <img src="/gdw-principal.svg" alt="Gabon Digital Week" class="h-10 mx-auto mb-3" />
+        <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block">RÉPUBLIQUE GABONAISE · MENDI</span>
+        <h2 class="text-xl font-black text-slate-900 tracking-tight mt-1">Espace Administration</h2>
+        <p class="text-xs text-slate-500 mt-1">Accès réservé au Comité d'Organisation</p>
+      </div>
+
+      <form id="login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label for="admin-pass" class="block text-xs font-bold uppercase text-slate-700 mb-1">Mot de passe officiel</label>
+          <input type="password" id="admin-pass" required placeholder="Entrez le mot de passe" class="w-full px-4 py-2.5 rounded border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#006E3E]" />
+          <p class="text-[11px] text-slate-500 mt-1">
+            Mot de passe par défaut : <code class="bg-slate-100 text-[#064E2E] px-1.5 py-0.5 rounded font-bold font-mono">gabon2026</code>
+          </p>
+        </div>
+
+        <div id="login-error" class="hidden text-xs text-red-600 font-semibold bg-red-50 p-2.5 rounded border border-red-200 text-center">
+          Mot de passe incorrect.
+        </div>
+
+        <button type="submit" class="w-full py-3 px-6 rounded font-bold text-white bg-[#064E2E] hover:bg-[#006E3E] shadow transition flex items-center justify-center space-x-2">
+          <span>Connexion Sécurisée</span>
+        </button>
+
+        <div class="pt-4 border-t border-slate-100 text-center">
+          <a href="/index.html" class="text-xs text-slate-500 hover:text-slate-800 transition font-medium">
+            &larr; Retourner sur le portail public
+          </a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Dashboard Principal -->
+  <div id="admin-dashboard" class="flex-1 flex flex-col">
+    
+    <!-- En-tête Admin -->
+    <header class="bg-white border-b border-slate-200 sticky top-[5px] z-30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        <div class="flex items-center space-x-3">
+          <img src="/gdw-symbole.svg" alt="GDW" class="w-9 h-9" />
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="font-extrabold text-slate-900 text-sm sm:text-base">Gabon Digital Week · Back-Office</h1>
+              <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center space-x-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Connecté</span>
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-500 hidden sm:block">Semaine du Numérique · MENDI Gabon</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <!-- Sauvegarder dans data.json -->
+          <button onclick="saveAllChangesToServer()" id="btn-save-top" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded text-xs font-bold text-white bg-[#006E3E] hover:bg-[#064E2E] shadow transition">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+            <span>Sauvegarder data.json</span>
+          </button>
+
+          <!-- Voir le site public -->
+          <a href="/index.html" target="_blank" class="inline-flex items-center space-x-1 px-3 py-1.5 rounded text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition">
+            <span>Voir le Site</span>
+          </a>
+
+          <!-- Déconnexion -->
+          <button onclick="handleAdminLogout()" class="p-1.5 rounded text-slate-400 hover:text-red-600 transition" title="Se déconnecter">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Barre d'onglets de gestion -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center overflow-x-auto space-x-2 text-xs font-bold border-t border-slate-200/80 bg-slate-50 py-2">
+        <button onclick="switchTab('tab-overview')" id="nav-tab-overview" class="admin-tab-btn active px-3.5 py-1.5 rounded bg-[#064E2E] text-white">
+          Vue d'ensemble
+        </button>
+        <button onclick="switchTab('tab-registrations')" id="nav-tab-registrations" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Inscriptions & Badges (<span id="count-nav-reg">0</span>)
+        </button>
+        <button onclick="switchTab('tab-press')" id="nav-tab-press" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Accréditations Presse (<span id="count-nav-press">0</span>)
+        </button>
+        <button onclick="switchTab('tab-messages')" id="nav-tab-messages" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Messages & Demandes Stand (<span id="count-nav-msg">0</span>)
+        </button>
+        <button onclick="switchTab('tab-agenda')" id="nav-tab-agenda" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Programme (5 Jours)
+        </button>
+        <button onclick="switchTab('tab-siteinfo')" id="nav-tab-siteinfo" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Bannière & Coordonnées
+        </button>
+        <button onclick="switchTab('tab-database')" id="nav-tab-database" class="admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200">
+          Base data.json
+        </button>
+      </div>
+    </header>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="hidden fixed bottom-6 right-6 z-50 max-w-md bg-slate-900 text-white px-5 py-3 rounded shadow-2xl border border-slate-700 flex items-center space-x-3 transition-all">
+      <span id="toast-message" class="text-xs font-semibold">Modification effectuée avec succès.</span>
+    </div>
+
+    <!-- Contenu Principal -->
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+      
+      <!-- 1. VUE D'ENSEMBLE -->
+      <section id="tab-overview" class="admin-panel space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white p-5 rounded border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold uppercase text-slate-500">Inscriptions Badges</span>
+            <div class="flex items-baseline justify-between mt-2">
+              <span id="kpi-reg-count" class="text-3xl font-black text-[#006E3E]">0</span>
+              <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">En direct</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Délégués, institutions & public</p>
+          </div>
+
+          <div class="bg-white p-5 rounded border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold uppercase text-slate-500">Demandes Presse</span>
+            <div class="flex items-baseline justify-between mt-2">
+              <span id="kpi-press-count" class="text-3xl font-black text-blue-700">0</span>
+              <span class="text-xs font-bold text-blue-800 bg-blue-100 px-2 py-0.5 rounded">Médias</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Télévision, radio, web & presse</p>
+          </div>
+
+          <div class="bg-white p-5 rounded border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold uppercase text-slate-500">Demandes de Stand / Msg</span>
+            <div class="flex items-baseline justify-between mt-2">
+              <span id="kpi-msg-count" class="text-3xl font-black text-amber-600">0</span>
+              <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Exposants</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Village du numérique & contact</p>
+          </div>
+
+          <div class="bg-white p-5 rounded border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold uppercase text-slate-500">Sessions au Programme</span>
+            <div class="flex items-baseline justify-between mt-2">
+              <span id="kpi-sessions-count" class="text-3xl font-black text-slate-900">10</span>
+              <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">5 Jours</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Du 26 au 30 octobre 2026</p>
+          </div>
+        </div>
+
+        <!-- Tableau synthétique des dernières inscriptions -->
+        <div class="bg-white rounded border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-sm text-slate-900">Dernières Inscriptions Reçues</h3>
+              <p class="text-xs text-slate-500">Exportable en CSV pour la commission Accueil, protocole et relations extérieures</p>
+            </div>
+            <button onclick="switchTab('tab-registrations')" class="text-xs font-bold text-[#006E3E] hover:underline">
+              Gérer toutes les inscriptions &rarr;
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Matricule</th>
+                  <th class="p-3">Participant</th>
+                  <th class="p-3">Organisation</th>
+                  <th class="p-3">Profil</th>
+                  <th class="p-3">Statut</th>
+                </tr>
+              </thead>
+              <tbody id="overview-recent-reg" class="divide-y divide-slate-100">
+                <!-- Dynamique -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. GESTION DES INSCRIPTIONS ET BADGES -->
+      <section id="tab-registrations" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-black text-slate-900">Inscriptions & Badges Officiels</h2>
+            <p class="text-xs text-slate-500">Commission Accueil, protocole et relations extérieures</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button onclick="exportRegistrationsToCSV()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded text-xs font-bold hover:bg-slate-200 transition flex items-center space-x-1.5">
+              <span>📥 Exporter en CSV (Excel)</span>
+            </button>
+            <button onclick="openAddParticipantModal()" class="px-4 py-2 bg-[#006E3E] text-white rounded text-xs font-bold hover:bg-[#064E2E] transition">
+              + Ajouter un Participant
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded border border-slate-200 flex flex-col sm:flex-row gap-3 items-center justify-between">
+          <input type="text" id="filter-reg-search" onkeyup="filterRegTable()" placeholder="Rechercher par nom, email, organisation..." class="px-3.5 py-2 text-xs rounded border border-slate-300 w-full sm:max-w-xs focus:ring-2 focus:ring-[#006E3E]" />
+          <div class="flex space-x-2 w-full sm:w-auto">
+            <select id="filter-reg-type" onchange="filterRegTable()" class="px-3 py-2 text-xs rounded border border-slate-300 bg-white">
+              <option value="All">Tous les profils</option>
+              <option value="Délégation officielle">Délégation officielle</option>
+              <option value="Institution publique">Institution publique</option>
+              <option value="Entreprise ou opérateur">Entreprise ou opérateur</option>
+              <option value="Startup">Startup</option>
+              <option value="Université et recherche">Université et recherche</option>
+              <option value="Investisseur">Investisseur</option>
+              <option value="Presse">Presse</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs" id="reg-table-full">
+              <thead class="bg-slate-50 text-slate-500 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Code Badge</th>
+                  <th class="p-3">Nom & Coordonnées</th>
+                  <th class="p-3">Organisation</th>
+                  <th class="p-3">Profil</th>
+                  <th class="p-3">e-Visa</th>
+                  <th class="p-3">Statut</th>
+                  <th class="p-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reg-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamique -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ACCRÉDITATIONS PRESSE -->
+      <section id="tab-press" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-black text-slate-900">Accréditations Presse & Médias</h2>
+            <p class="text-xs text-slate-500">Commission Communication · Journalistes, reporters et vidéastes</p>
+          </div>
+          <button onclick="exportPressToCSV()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded text-xs font-bold hover:bg-slate-200 transition">
+            📥 Exporter la liste Presse (CSV)
+          </button>
+        </div>
+
+        <div class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Journaliste</th>
+                  <th class="p-3">Média & Type</th>
+                  <th class="p-3">Pays</th>
+                  <th class="p-3">Coordonnées</th>
+                  <th class="p-3">Jours</th>
+                  <th class="p-3">Statut</th>
+                  <th class="p-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="press-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamique -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MESSAGES DE CONTACT & DEMANDES STAND -->
+      <section id="tab-messages" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm">
+          <h2 class="text-lg font-black text-slate-900">Messages & Demandes d'Exposition</h2>
+          <p class="text-xs text-slate-500">Demandes de stands au Village du Numérique, partenariats et renseignements</p>
+        </div>
+
+        <div class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Expéditeur</th>
+                  <th class="p-3">Objet</th>
+                  <th class="p-3">Organisation</th>
+                  <th class="p-3">Message</th>
+                  <th class="p-3">Date</th>
+                </tr>
+              </thead>
+              <tbody id="messages-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamique -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. GESTION DU PROGRAMME (AGENDA) -->
+      <section id="tab-agenda" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-black text-slate-900">Programme Officiel (5 Jours)</h2>
+            <p class="text-xs text-slate-500">Mise à jour directe du programme sans développeur (Commission Scientifique)</p>
+          </div>
+          <button onclick="openAddSessionModal()" class="px-4 py-2 bg-[#006E3E] text-white rounded text-xs font-bold hover:bg-[#064E2E] transition">
+            + Ajouter une Session
+          </button>
+        </div>
+
+        <div class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Jour & Heure</th>
+                  <th class="p-3">Titre de la session</th>
+                  <th class="p-3">Salle</th>
+                  <th class="p-3">Type</th>
+                  <th class="p-3">Intervenant(s)</th>
+                  <th class="p-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="agenda-table-body" class="divide-y divide-slate-100">
+                <!-- Dynamique -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. BANNIÈRE ET COORDONNÉES -->
+      <section id="tab-siteinfo" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm">
+          <h2 class="text-lg font-black text-slate-900 mb-4">Bannière d'Annonce & Coordonnées</h2>
+          
+          <form onsubmit="handleSaveSiteInfo(event)" class="space-y-4 text-xs">
+            
+            <div class="p-4 bg-amber-50 rounded border border-amber-200 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-amber-950 uppercase">Bannière d'annonce en haut du site</span>
+                <label class="flex items-center space-x-1 cursor-pointer">
+                  <input type="checkbox" id="info-banner-active" class="rounded text-[#006E3E]" />
+                  <span class="font-semibold text-slate-700">Activer la bannière</span>
+                </label>
+              </div>
+              <input type="text" id="info-banner-notice" class="w-full px-3 py-2 rounded border border-amber-300 bg-white" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-bold text-slate-700 uppercase mb-1">Dates de l'événement</label>
+                <input type="text" id="info-dates" class="w-full px-3 py-2 rounded border border-slate-300 bg-white" />
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 uppercase mb-1">Lieu officiel</label>
+                <input type="text" id="info-venue" class="w-full px-3 py-2 rounded border border-slate-300 bg-white" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-bold text-slate-700 uppercase mb-1">Courriel général</label>
+                <input type="email" id="info-email" class="w-full px-3 py-2 rounded border border-slate-300 bg-white" />
+              </div>
+              <div>
+                <label class="block font-bold text-slate-700 uppercase mb-1">Courriel presse</label>
+                <input type="email" id="info-press-email" class="w-full px-3 py-2 rounded border border-slate-300 bg-white" />
+              </div>
+            </div>
+
+            <button type="submit" class="px-5 py-2.5 bg-[#006E3E] text-white rounded font-bold hover:bg-[#064E2E] transition">
+              Enregistrer les coordonnées
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 7. BASE DE DONNÉES DATA.JSON -->
+      <section id="tab-database" class="admin-panel hidden space-y-6">
+        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-lg font-black text-slate-900">Base de données data.json</h2>
+              <p class="text-xs text-slate-500">Édition directe et sauvegarde persistante</p>
+            </div>
+            <button onclick="downloadJsonBackup()" class="px-4 py-2 bg-slate-900 text-white rounded text-xs font-bold hover:bg-slate-800 transition">
+              📥 Télécharger data.json
+            </button>
+          </div>
+
+          <textarea id="raw-json-editor" rows="18" class="w-full p-4 rounded font-mono text-xs bg-slate-900 text-emerald-400 focus:outline-none"></textarea>
+
+          <button onclick="applyRawJsonChanges()" class="px-6 py-2.5 bg-[#006E3E] text-white rounded text-xs font-bold hover:bg-[#064E2E] transition">
+            Appliquer et Sauvegarder sur le serveur
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Modal Ajout Participant -->
+  <div id="modal-participant" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+    <div class="bg-white rounded max-w-md w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-sm text-slate-900">Ajouter un Participant Officiel</h3>
+        <button onclick="closeParticipantModal()" class="text-slate-400 hover:text-black">✕</button>
+      </div>
+
+      <form onsubmit="handleManualParticipant(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Nom complet</label>
+          <input type="text" id="m-part-name" required class="w-full px-3 py-2 rounded border border-slate-300" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Courriel</label>
+          <input type="email" id="m-part-email" required class="w-full px-3 py-2 rounded border border-slate-300" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Organisation</label>
+            <input type="text" id="m-part-org" required class="w-full px-3 py-2 rounded border border-slate-300" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Fonction</label>
+            <input type="text" id="m-part-role" required class="w-full px-3 py-2 rounded border border-slate-300" />
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Profil</label>
+          <select id="m-part-type" class="w-full px-3 py-2 rounded border border-slate-300">
+            <option value="Délégation officielle">Délégation officielle</option>
+            <option value="Institution publique">Institution publique</option>
+            <option value="Entreprise ou opérateur">Entreprise ou opérateur</option>
+            <option value="Startup">Startup</option>
+            <option value="Université et recherche">Université et recherche</option>
+            <option value="Investisseur">Investisseur</option>
+            <option value="Presse">Presse</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-[#006E3E] text-white rounded font-bold hover:bg-[#064E2E]">
+          Créer le participant et le badge
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Ajout Session Agenda -->
+  <div id="modal-session" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+    <div class="bg-white rounded max-w-lg w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-sm text-slate-900">Ajouter / Modifier une Session</h3>
+        <button onclick="closeSessionModal()" class="text-slate-400 hover:text-black">✕</button>
+      </div>
+
+      <form onsubmit="handleSaveSession(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="sess-edit-id" />
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Jour</label>
+            <select id="sess-day" class="w-full px-3 py-2 rounded border border-slate-300">
+              <option value="Jour 1">Jour 1 (26 oct.)</option>
+              <option value="Jour 2">Jour 2 (27 oct.)</option>
+              <option value="Jour 3">Jour 3 (28 oct.)</option>
+              <option value="Jour 4">Jour 4 (29 oct.)</option>
+              <option value="Jour 5">Jour 5 (30 oct.)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Horaire</label>
+            <input type="text" id="sess-time" placeholder="Ex: 09:00 - 11:30" required class="w-full px-3 py-2 rounded border border-slate-300" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Titre de la session *</label>
+          <input type="text" id="sess-title" required class="w-full px-3 py-2 rounded border border-slate-300" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Salle / Lieu</label>
+            <input type="text" id="sess-room" value="Grande Plénière" required class="w-full px-3 py-2 rounded border border-slate-300" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase mb-0.5">Catégorie</label>
+            <select id="sess-cat" class="w-full px-3 py-2 rounded border border-slate-300">
+              <option value="Cérémonie">Cérémonie</option>
+              <option value="Plénière">Plénière</option>
+              <option value="Panel">Panel</option>
+              <option value="Atelier">Atelier</option>
+              <option value="Startups">Startups</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Intervenant(s)</label>
+          <input type="text" id="sess-speaker" placeholder="Ministres, experts..." class="w-full px-3 py-2 rounded border border-slate-300" />
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase mb-0.5">Description courte</label>
+          <textarea id="sess-desc" rows="3" class="w-full px-3 py-2 rounded border border-slate-300"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-[#006E3E] text-white rounded font-bold hover:bg-[#064E2E]">
+          Enregistrer la session
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let dbData = null;
+
+    // Authentification
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('admin-pass').value;
+      if (pass === 'gabon2026' || pass === 'mendi2026') {
+        sessionStorage.setItem('gdw_auth', '1');
+        document.getElementById('login-overlay').classList.add('hidden');
+        loadAdminData();
+      } else {
+        document.getElementById('login-error').classList.remove('hidden');
+      }
+    }
+
+    function handleAdminLogout() {
+      sessionStorage.removeItem('gdw_auth');
+      window.location.reload();
+    }
+
+    // Chargement des données
+    async function loadAdminData() {
+      try {
+        const res = await fetch('/api/data');
+        if (res.ok) {
+          dbData = await res.json();
+          renderAll();
+        }
+      } catch (err) {
+        console.error('Erreur chargement données', err);
+      }
+    }
+
+    function renderAll() {
+      if (!dbData) return;
+      renderKPIs();
+      renderRegistrationsTable();
+      renderPressTable();
+      renderMessagesTable();
+      renderAgendaTable();
+      renderSiteInfo();
+      renderRawJson();
+    }
+
+    function renderKPIs() {
+      const regCount = (dbData.registrations || []).length;
+      const pressCount = (dbData.pressAccreditations || []).length;
+      const msgCount = (dbData.contactMessages || []).length;
+      const sessCount = (dbData.agenda || []).length;
+
+      document.getElementById('kpi-reg-count').textContent = regCount;
+      document.getElementById('count-nav-reg').textContent = regCount;
+
+      document.getElementById('kpi-press-count').textContent = pressCount;
+      document.getElementById('count-nav-press').textContent = pressCount;
+
+      document.getElementById('kpi-msg-count').textContent = msgCount;
+      document.getElementById('count-nav-msg').textContent = msgCount;
+
+      document.getElementById('kpi-sessions-count').textContent = sessCount;
+
+      // Table aperçu
+      const recentRegs = (dbData.registrations || []).slice(0, 5);
+      const recentTbody = document.getElementById('overview-recent-reg');
+      recentTbody.innerHTML = recentRegs.map(r => `
+        <tr>
+          <td class="p-3 font-mono font-bold text-emerald-800">${r.badgeCode || r.id}</td>
+          <td class="p-3 font-semibold">${r.name}</td>
+          <td class="p-3 text-slate-600">${r.organization || '-'}</td>
+          <td class="p-3">${r.type || 'Participant'}</td>
+          <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">${r.status || 'Confirmé'}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    // Navigation entre onglets
+    function switchTab(tabId) {
+      document.querySelectorAll('.admin-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.admin-tab-btn').forEach(b => {
+        b.className = 'admin-tab-btn px-3.5 py-1.5 rounded text-slate-700 hover:bg-slate-200';
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      const btn = document.getElementById(`nav-${tabId}`);
+      if (btn) btn.className = 'admin-tab-btn active px-3.5 py-1.5 rounded bg-[#064E2E] text-white';
+    }
+
+    // Rendu table des inscriptions
+    function renderRegistrationsTable() {
+      const tbody = document.getElementById('reg-table-body');
+      if (!tbody || !dbData.registrations) return;
+
+      tbody.innerHTML = dbData.registrations.map((r, idx) => `
+        <tr>
+          <td class="p-3 font-mono font-bold text-emerald-800">${r.badgeCode || r.id}</td>
+          <td class="p-3">
+            <div class="font-bold text-slate-900">${r.name}</div>
+            <div class="text-[11px] text-slate-500">${r.email} • ${r.phone}</div>
+          </td>
+          <td class="p-3">
+            <div class="font-medium text-slate-800">${r.organization || '-'}</div>
+            <div class="text-[11px] text-slate-500">${r.role || '-'}</div>
+          </td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-800">${r.type || 'Autre'}</span>
+          </td>
+          <td class="p-3">
+            ${r.visaAssistance ? '<span class="text-amber-800 bg-amber-100 px-2 py-0.5 rounded text-[10px] font-bold">Assistance requise</span>' : '<span class="text-slate-400">Non</span>'}
+          </td>
+          <td class="p-3">
+            <select onchange="updateRegStatus(${idx}, this.value)" class="text-xs font-semibold px-2 py-1 rounded border border-slate-300 bg-white">
+              <option value="Confirmé" ${r.status === 'Confirmé' ? 'selected' : ''}>Confirmé</option>
+              <option value="En attente" ${r.status === 'En attente' ? 'selected' : ''}>En attente</option>
+              <option value="Rejeté" ${r.status === 'Rejeté' ? 'selected' : ''}>Rejeté</option>
+            </select>
+          </td>
+          <td class="p-3 text-right">
+            <button onclick="deleteRegistration(${idx})" class="text-red-600 hover:text-red-900 font-bold ml-2">Supprimer</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function updateRegStatus(idx, val) {
+      if (dbData.registrations && dbData.registrations[idx]) {
+        dbData.registrations[idx].status = val;
+        showToast('Statut mis à jour');
+      }
+    }
+
+    function deleteRegistration(idx) {
+      if (confirm('Supprimer cette inscription ?')) {
+        dbData.registrations.splice(idx, 1);
+        renderRegistrationsTable();
+        renderKPIs();
+        showToast('Inscription supprimée');
+      }
+    }
+
+    function filterRegTable() {
+      const q = document.getElementById('filter-reg-search').value.toLowerCase();
+      const type = document.getElementById('filter-reg-type').value;
+
+      const rows = document.querySelectorAll('#reg-table-body tr');
+      rows.forEach(tr => {
+        const text = tr.textContent.toLowerCase();
+        const matchesQ = text.includes(q);
+        const matchesType = (type === 'All') || text.includes(type.toLowerCase());
+        tr.style.display = (matchesQ && matchesType) ? '' : 'none';
+      });
+    }
+
+    // Export CSV Inscriptions
+    function exportRegistrationsToCSV() {
+      if (!dbData.registrations || dbData.registrations.length === 0) {
+        alert('Aucune inscription à exporter.');
+        return;
+      }
+      let csv = 'Matricule,Nom,Email,Telephone,Organisation,Fonction,Type,VisaAssistance,Statut,Date\n';
+      dbData.registrations.forEach(r => {
+        csv += `"${r.badgeCode || r.id}","${r.name}","${r.email}","${r.phone}","${r.organization || ''}","${r.role || ''}","${r.type || ''}","${r.visaAssistance ? 'Oui' : 'Non'}","${r.status || 'Confirmé'}","${r.registeredAt || ''}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `gabon_digital_week_inscriptions_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    }
+
+    // Table Presse
+    function renderPressTable() {
+      const tbody = document.getElementById('press-table-body');
+      if (!tbody || !dbData.pressAccreditations) return;
+
+      tbody.innerHTML = dbData.pressAccreditations.map((p, idx) => `
+        <tr>
+          <td class="p-3">
+            <div class="font-bold text-slate-900">${p.name}</div>
+            <div class="text-[11px] text-slate-500">${p.role}</div>
+          </td>
+          <td class="p-3">
+            <div class="font-semibold">${p.media}</div>
+            <span class="text-[10px] text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded font-bold">${p.mediaType}</span>
+          </td>
+          <td class="p-3">${p.country || 'Gabon'}</td>
+          <td class="p-3 text-[11px] text-slate-600">${p.email}<br/>${p.phone}</td>
+          <td class="p-3 text-[11px] text-slate-600">${p.days || '26-30 oct.'}</td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${p.status === 'Confirmé' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+              ${p.status || 'En attente'}
+            </span>
+          </td>
+          <td class="p-3 text-right">
+            <button onclick="togglePressApproval(${idx})" class="text-xs font-bold ${p.status === 'Confirmé' ? 'text-amber-600' : 'text-emerald-600'}">
+              ${p.status === 'Confirmé' ? 'Suspendre' : 'Valider'}
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function togglePressApproval(idx) {
+      if (dbData.pressAccreditations && dbData.pressAccreditations[idx]) {
+        dbData.pressAccreditations[idx].status = dbData.pressAccreditations[idx].status === 'Confirmé' ? 'En attente' : 'Confirmé';
+        renderPressTable();
+        showToast('Accréditation presse mise à jour');
+      }
+    }
+
+    function exportPressToCSV() {
+      if (!dbData.pressAccreditations || dbData.pressAccreditations.length === 0) {
+        alert('Aucune accréditation presse à exporter.');
+        return;
+      }
+      let csv = 'ID,Nom,Media,TypeMedia,Role,Pays,Email,Telephone,Jours,Statut\n';
+      dbData.pressAccreditations.forEach(p => {
+        csv += `"${p.id}","${p.name}","${p.media}","${p.mediaType}","${p.role}","${p.country}","${p.email}","${p.phone}","${p.days}","${p.status}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `gdw_accreditations_presse_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    }
+
+    // Messages Contact
+    function renderMessagesTable() {
+      const tbody = document.getElementById('messages-table-body');
+      if (!tbody || !dbData.contactMessages) return;
+
+      tbody.innerHTML = dbData.contactMessages.map(m => `
+        <tr>
+          <td class="p-3">
+            <div class="font-bold text-slate-900">${m.name}</div>
+            <div class="text-[11px] text-slate-500">${m.email} ${m.phone ? '• ' + m.phone : ''}</div>
+          </td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${m.subject.includes('stand') ? 'bg-amber-100 text-amber-900' : 'bg-slate-100 text-slate-800'}">
+              ${m.subject}
+            </span>
+          </td>
+          <td class="p-3 text-slate-700">${m.organization || '-'}</td>
+          <td class="p-3 text-slate-600 max-w-sm truncate" title="${m.message}">${m.message}</td>
+          <td class="p-3 text-[11px] text-slate-400">${new Date(m.date || Date.now()).toLocaleDateString('fr-FR')}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Programme / Sessions
+    function renderAgendaTable() {
+      const tbody = document.getElementById('agenda-table-body');
+      if (!tbody || !dbData.agenda) return;
+
+      tbody.innerHTML = dbData.agenda.map((s, idx) => `
+        <tr>
+          <td class="p-3">
+            <div class="font-bold text-slate-900">${s.day}</div>
+            <div class="font-mono text-[11px] text-emerald-800">${s.time}</div>
+          </td>
+          <td class="p-3 font-semibold text-slate-900 max-w-xs">${s.title}</td>
+          <td class="p-3 text-slate-600">${s.room}</td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-800">${s.category}</span>
+          </td>
+          <td class="p-3 text-slate-600 text-[11px]">${s.speaker || '-'}</td>
+          <td class="p-3 text-right">
+            <button onclick="editSession(${idx})" class="text-xs font-bold text-blue-600 hover:underline">Modifier</button>
+            <button onclick="deleteSession(${idx})" class="text-xs font-bold text-red-600 hover:underline ml-2">Supprimer</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openAddSessionModal() {
+      document.getElementById('sess-edit-id').value = '';
+      document.getElementById('sess-time').value = '10:00 - 12:00';
+      document.getElementById('sess-title').value = '';
+      document.getElementById('sess-speaker').value = '';
+      document.getElementById('sess-desc').value = '';
+      document.getElementById('modal-session').classList.remove('hidden');
+      document.getElementById('modal-session').classList.add('flex');
+    }
+
+    function editSession(idx) {
+      const s = dbData.agenda[idx];
+      document.getElementById('sess-edit-id').value = String(idx);
+      document.getElementById('sess-day').value = s.day;
+      document.getElementById('sess-time').value = s.time;
+      document.getElementById('sess-title').value = s.title;
+      document.getElementById('sess-room').value = s.room;
+      document.getElementById('sess-cat').value = s.category;
+      document.getElementById('sess-speaker').value = s.speaker || '';
+      document.getElementById('sess-desc').value = s.description || '';
+      document.getElementById('modal-session').classList.remove('hidden');
+      document.getElementById('modal-session').classList.add('flex');
+    }
+
+    function closeSessionModal() {
+      document.getElementById('modal-session').classList.add('hidden');
+      document.getElementById('modal-session').classList.remove('flex');
+    }
+
+    function handleSaveSession(e) {
+      e.preventDefault();
+      const editId = document.getElementById('sess-edit-id').value;
+      const day = document.getElementById('sess-day').value;
+      const time = document.getElementById('sess-time').value;
+      const title = document.getElementById('sess-title').value;
+      const room = document.getElementById('sess-room').value;
+      const category = document.getElementById('sess-cat').value;
+      const speaker = document.getElementById('sess-speaker').value;
+      const description = document.getElementById('sess-desc').value;
+
+      const newSess = {
+        id: editId !== '' ? dbData.agenda[parseInt(editId, 10)].id : `gdw-${Date.now()}`,
+        day,
+        time,
+        title,
+        room,
+        category,
+        speaker,
+        description
+      };
+
+      if (editId !== '') {
+        dbData.agenda[parseInt(editId, 10)] = newSess;
+      } else {
+        dbData.agenda.push(newSess);
+      }
+
+      closeSessionModal();
+      renderAgendaTable();
+      renderKPIs();
+      showToast('Session enregistrée au programme');
+    }
+
+    function deleteSession(idx) {
+      if (confirm('Supprimer cette session du programme ?')) {
+        dbData.agenda.splice(idx, 1);
+        renderAgendaTable();
+        renderKPIs();
+        showToast('Session supprimée');
+      }
+    }
+
+    // Modal Participant Manuel
+    function openAddParticipantModal() {
+      document.getElementById('modal-participant').classList.remove('hidden');
+      document.getElementById('modal-participant').classList.add('flex');
+    }
+    function closeParticipantModal() {
+      document.getElementById('modal-participant').classList.add('hidden');
+      document.getElementById('modal-participant').classList.remove('flex');
+    }
+    function handleManualParticipant(e) {
+      e.preventDefault();
+      const name = document.getElementById('m-part-name').value;
+      const email = document.getElementById('m-part-email').value;
+      const org = document.getElementById('m-part-org').value;
+      const role = document.getElementById('m-part-role').value;
+      const type = document.getElementById('m-part-type').value;
+
+      const nextNum = (dbData.registrations || []).length + 1;
+      const id = `GDW-2026-${String(nextNum).padStart(3, '0')}`;
+      const badgeCode = `GDW-${type.substring(0, 4).toUpperCase()}-${String(nextNum).padStart(3, '0')}`;
+
+      dbData.registrations.unshift({
+        id,
+        name,
+        email,
+        phone: '',
+        organization: org,
+        role,
+        type,
+        badgeCode,
+        visaAssistance: false,
+        status: 'Confirmé',
+        registeredAt: new Date().toISOString()
+      });
+
+      closeParticipantModal();
+      renderRegistrationsTable();
+      renderKPIs();
+      showToast('Participant ajouté avec succès');
+    }
+
+    // Bannière et Coordonnées
+    function renderSiteInfo() {
+      if (!dbData.siteInfo) return;
+      document.getElementById('info-banner-active').checked = !!dbData.siteInfo.bannerActive;
+      document.getElementById('info-banner-notice').value = dbData.siteInfo.bannerNotice || '';
+      document.getElementById('info-dates').value = dbData.siteInfo.dates || 'Du 26 au 30 octobre 2026';
+      document.getElementById('info-venue').value = dbData.siteInfo.venueName || 'Palais des Congrès Omar Bongo Ondimba';
+      document.getElementById('info-email').value = dbData.siteInfo.contactEmail || 'contact@mendi.gouv.ga';
+      document.getElementById('info-press-email').value = dbData.siteInfo.pressEmail || 'presse@mendi.gouv.ga';
+    }
+
+    function handleSaveSiteInfo(e) {
+      e.preventDefault();
+      dbData.siteInfo.bannerActive = document.getElementById('info-banner-active').checked;
+      dbData.siteInfo.bannerNotice = document.getElementById('info-banner-notice').value;
+      dbData.siteInfo.dates = document.getElementById('info-dates').value;
+      dbData.siteInfo.venueName = document.getElementById('info-venue').value;
+      dbData.siteInfo.contactEmail = document.getElementById('info-email').value;
+      dbData.siteInfo.pressEmail = document.getElementById('info-press-email').value;
+
+      showToast('Paramètres généraux mis à jour');
+    }
+
+    // Raw JSON Editor
+    function renderRawJson() {
+      const editor = document.getElementById('raw-json-editor');
+      if (editor) {
+        editor.value = JSON.stringify(dbData, null, 2);
+      }
+    }
+
+    function applyRawJsonChanges() {
+      try {
+        const parsed = JSON.parse(document.getElementById('raw-json-editor').value);
+        dbData = parsed;
+        saveAllChangesToServer();
+      } catch (err) {
+        alert('Erreur JSON invalide : ' + err.message);
+      }
+    }
+
+    function downloadJsonBackup() {
+      const blob = new Blob([JSON.stringify(dbData, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `data_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    // Sauvegarde vers le serveur (POST /api/data)
+    async function saveAllChangesToServer() {
+      const btn = document.getElementById('btn-save-top');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sauvegarde...</span>';
+
+      try {
+        const res = await fetch('/api/data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dbData)
+        });
+        const resData = await res.json();
+        if (resData.success) {
+          showToast('Données data.json enregistrées avec succès sur le serveur !');
+          renderAll();
+        } else {
+          alert('Erreur lors de la sauvegarde : ' + resData.error);
+        }
+      } catch (err) {
+        alert('Erreur réseau lors de la sauvegarde : ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+          <span>Sauvegarder data.json</span>
+        `;
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => {
+        t.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Vérifier l'accès
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('gdw_auth') === '1') {
+        document.getElementById('login-overlay').classList.add('hidden');
+        loadAdminData();
+      }
+    });
+  </script>
+</body>
+</html>

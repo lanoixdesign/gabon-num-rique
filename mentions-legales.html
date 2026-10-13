@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      function isExtensionIssue(err) {
+        if (!err) return false;
+        var text = (typeof err === 'string') ? err : (err.message || err.description || (err.reason && (err.reason.message || err.reason.toString())) || String(err));
+        return /MetaMask|ethereum|Failed to connect to MetaMask/i.test(text);
+      }
+      window.addEventListener('unhandledrejection', function (event) {
+        if (isExtensionIssue(event.reason)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+      window.addEventListener('error', function (event) {
+        if (isExtensionIssue(event.message) || isExtensionIssue(event.error) || (event.filename && /chrome-extension|moz-extension/i.test(event.filename))) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions Légales & Confidentialité | Gabon Digital Week 2026</title>
+  <meta name="description" content="Mentions légales et politique de confidentialité officielle de la Gabon Digital Week 2026 organisée par le Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI)." />
+  
+  <!-- Google Fonts Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            gdw: {
+              vertNuit: '#064E2E',
+              vertProfond: '#006E3E',
+              vertLime: '#79B222',
+              jaune: '#FCD116',
+              bleuOfficiel: '#0047AB',
+              bleuNuit: '#0A192F',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .flag-ribbon {
+      height: 6px;
+      background: linear-gradient(to right, #008751 33.33%, #FCD116 33.33%, #FCD116 66.66%, #0047AB 66.66%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+  <!-- Ruban drapeau officiel Gabon -->
+  <div class="flag-ribbon w-full sticky top-0 z-50"></div>
+
+  <!-- Barre d'état officielle de la République -->
+  <div class="bg-[#0A192F] text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center space-x-3">
+        <svg class="w-6 h-4 rounded shadow-sm flex-shrink-0" viewBox="0 0 300 200">
+          <rect width="300" height="66.66" fill="#008751" />
+          <rect y="66.66" width="300" height="66.66" fill="#FCD116" />
+          <rect y="133.33" width="300" height="66.66" fill="#0047AB" />
+        </svg>
+        <span class="font-bold tracking-wider text-slate-100 uppercase text-[11px]">RÉPUBLIQUE GABONAISE</span>
+        <span class="text-slate-600 hidden sm:inline">•</span>
+        <span class="italic text-gdw-jaune font-medium hidden sm:inline text-[11px]">« Union - Travail - Justice »</span>
+      </div>
+      <div class="text-[11px] text-slate-300">
+        <span>Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- En-tête de navigation -->
+  <header class="bg-white border-b border-slate-200 sticky top-[6px] z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-3 group">
+        <img src="/gdw-principal.svg" alt="Gabon Digital Week" class="h-10 sm:h-12 w-auto group-hover:opacity-90 transition" />
+      </a>
+
+      <div class="flex items-center space-x-4">
+        <a href="/" class="inline-flex items-center space-x-2 text-xs font-bold text-gdw-vertProfond hover:text-gdw-vertNuit transition px-3.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          <span>Retour au portail officiel</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu Principal -->
+  <main class="flex-grow py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <!-- En-tête de page -->
+      <div class="border-b border-slate-200 pb-8 text-center sm:text-left">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider mb-4">
+          <svg class="w-3.5 h-3.5 text-gdw-vertProfond" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span>Document Juridique Officiel</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Mentions Légales & Confidentialité</h1>
+        <p class="text-sm sm:text-base text-slate-600 mt-2">
+          Cadre juridique et politique de protection des données pour la 1ère édition de la Gabon Digital Week (26–30 octobre 2026, Libreville).
+        </p>
+      </div>
+
+      <!-- Section 1 : Éditeur du site -->
+      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+        <div class="flex items-center space-x-3 pb-3 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-gdw-vertProfond flex items-center justify-center font-bold text-lg">
+            🏛️
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">1. Éditeur de la Plateforme</h2>
+            <p class="text-xs text-slate-500">Autorité administrative responsable</p>
+          </div>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-700 space-y-2.5 leading-relaxed">
+          <p>
+            Le site officiel de la <strong>Gabon Digital Week</strong> est édité et administré par le :
+          </p>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs font-medium space-y-1">
+            <p class="font-bold text-slate-900">Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI)</p>
+            <p class="text-slate-600">Gouvernement de la République Gabonaise</p>
+            <p class="text-slate-600">Immeuble Ministériel, Libreville, République Gabonaise</p>
+            <p class="text-slate-600">Contact électronique officiel : <a href="mailto:contact@mendi.gouv.ga" class="text-gdw-vertProfond font-bold hover:underline">contact@mendi.gouv.ga</a></p>
+            <p class="text-slate-600">Contact presse officiel : <a href="mailto:presse@mendi.gouv.ga" class="text-gdw-vertProfond font-bold hover:underline">presse@mendi.gouv.ga</a></p>
+          </div>
+          <p>
+            <strong>Directeur de publication :</strong> Le Cabinet du Ministre de l'Économie Numérique, de la Digitalisation et de l'Innovation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2 : Propriété intellectuelle -->
+      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+        <div class="flex items-center space-x-3 pb-3 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-gdw-bleuOfficiel flex items-center justify-center font-bold text-lg">
+            ⚖️
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">2. Propriété Intellectuelle & Droits Réservés</h2>
+            <p class="text-xs text-slate-500">Protection des contenus, logos et marques</p>
+          </div>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-700 space-y-2.5 leading-relaxed">
+          <p>
+            L'ensemble des éléments constituant ce site (textes, graphismes, logotypes, symboles, photographies, vidéos, icônes et architecture générale) est la propriété exclusive du <strong>Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI)</strong> ou fait l'objet d'une autorisation expresse d'utilisation accordée par les partenaires institutionnels.
+          </p>
+          <p>
+            Toute reproduction, représentation, modification, publication ou adaptation totale ou partielle des éléments du site, quel que soit le moyen ou le procédé utilisé, est strictement interdite sans autorisation écrite préalable du Ministère, à l'exception des éléments et communiqués expressément mis à disposition des journalistes dans la <em>Salle de presse</em>.
+          </p>
+          <p>
+            La dénomination « Gabon Digital Week » et les logos associés sont protégés par la législation en vigueur sur les marques et la propriété intellectuelle.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 3 : Protection des Données Personnelles -->
+      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+        <div class="flex items-center space-x-3 pb-3 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-lg">
+            🛡️
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">3. Protection des Données à Caractère Personnel</h2>
+            <p class="text-xs text-slate-500">Respect de la vie privée et conformité réglementaire</p>
+          </div>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-700 space-y-3 leading-relaxed">
+          <p>
+            Le Ministère s'engage à ce que la collecte et le traitement de vos données personnelles effectués via le présent portail soient conformes à la réglementation gabonaise relative à la protection des données à caractère personnel.
+          </p>
+          <div class="space-y-2 pl-3 border-l-2 border-amber-300">
+            <p><strong>Finalités du traitement :</strong> Les informations recueillies via les formulaires d'inscription des participants, d'accréditation des médias et de contact sont strictement nécessaires à l'organisation de l'événement (délivrance des badges nominatifs d'accès sécurisé, assistance e-visa, communication logistique et protocolaire).</p>
+            <p><strong>Destinataires des données :</strong> Les données sont réservées à l'usage exclusif du comité d'organisation du MENDI et des commissions officielles (Accueil, Protocole, Sécurité, Communication). Aucune donnée n'est cédée, louée ni commercialisée à des tiers.</p>
+            <p><strong>Conservation :</strong> Les données d'inscription sont conservées pour la durée stricte de l'organisation et du bilan de la 1ère édition de la Semaine du Numérique.</p>
+            <p><strong>Droits des utilisateurs :</strong> Vous disposez d'un droit d'accès, de rectification, de portabilité et de suppression de vos données nominatives. Pour exercer ces droits, adressez votre demande accompagnée d'une pièce d'identité à : <a href="mailto:contact@mendi.gouv.ga" class="text-gdw-vertProfond font-bold hover:underline">contact@mendi.gouv.ga</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4 : Accès à l'événement et Conditions Générales -->
+      <div class="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+        <div class="flex items-center space-x-3 pb-3 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center font-bold text-lg">
+            🎫
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">4. Conditions d'Accès & Déroulement de l'Événement</h2>
+            <p class="text-xs text-slate-500">Règlement intérieur au Palais des Congrès</p>
+          </div>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-700 space-y-2.5 leading-relaxed">
+          <p>
+            <strong>Accès gratuit sur inscription :</strong> L'accès à la Gabon Digital Week est gratuit mais conditionné à une inscription préalable obligatoire. L'événement est ouvert à tous (professionnels, étudiants, institutionnels, citoyens).
+          </p>
+          <p>
+            <strong>Port du badge obligatoire :</strong> Toute personne accédant aux espaces du Palais des Congrès Omar Bongo Ondimba doit être munie de son badge nominatif officiel visible. Des contrôles de sécurité et d'identité stricts sont effectués aux entrées.
+          </p>
+          <p>
+            <strong>Évolution du programme :</strong> Le Ministère se réserve le droit de modifier le programme des plénières, ateliers et sessions en fonction des impératifs protocolaires et de la disponibilité des délégations et intervenants.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bouton retour -->
+      <div class="text-center pt-4">
+        <a href="/" class="inline-flex items-center space-x-2 text-sm font-bold text-white bg-gdw-vertProfond hover:bg-gdw-vertNuit transition px-6 py-3 rounded-xl shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          <span>Retourner au portail Gabon Digital Week</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Pied de page officiel en bleu (identique) -->
+  <footer class="bg-gradient-to-b from-[#06182E] to-[#020A14] text-slate-300 py-10 border-t border-blue-950 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-blue-900/60">
+        <div class="flex items-center space-x-4">
+          <img src="/gdw-fond-sombre.svg" alt="Gabon Digital Week" class="h-9 w-auto" />
+          <div class="border-l border-blue-800 pl-4">
+            <span class="text-xs text-gdw-jaune font-bold uppercase tracking-wider block">Semaine du numérique · 1ère édition</span>
+            <p class="text-[11px] text-slate-400">Du 26 au 30 octobre 2026 · Palais des Congrès Omar Bongo Ondimba, Libreville</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3 text-xs">
+          <a href="https://www.linkedin.com/company/minist%C3%A8re-de-l-%C3%A9conomie-num%C3%A9rique-de-la-digitalisation-et-de-l-innovation/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-blue-900/80 hover:bg-blue-800 text-white transition flex items-center space-x-1.5">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://whatsapp.com/channel/0029VbBKrwJ2kNFuB8frJv0L" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-emerald-800/90 hover:bg-emerald-700 text-white transition flex items-center space-x-1.5">
+            <span>Chaîne WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <span>© 2026 Gabon Digital Week – Ministère de l'Économie Numérique, Gabon.</span>
+        <a href="/" class="text-emerald-400 hover:underline">Accueil du site</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

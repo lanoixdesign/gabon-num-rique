@@ -1,0 +1,630 @@
+{
+  "siteInfo": {
+    "title": "Gabon Digital Week",
+    "shortTitle": "GDW 2026",
+    "edition": "Semaine du numérique · 1ère édition",
+    "theme": "Souveraineté, inclusion et innovation : le numérique, levier de compétitivité et de création d'emplois pour le Gabon et pour l'Afrique.",
+    "themeEn": "Sovereignty, inclusion and innovation: digital technology as a driver of competitiveness and job creation for Gabon and Africa.",
+    "dates": "Du 26 au 30 octobre 2026",
+    "datesEn": "October 26 to 30, 2026",
+    "eventStartDate": "2026-10-26T08:30:00",
+    "eventEndDate": "2026-10-30T18:00:00",
+    "countdownDate": "2026-10-26T08:30:00",
+    "venueName": "Palais des Congrès Omar Bongo Ondimba",
+    "venueCity": "Libreville, Gabon",
+    "patronage": "Sous le Haut Patronage du Chef de l'État",
+    "ministry": "Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation",
+    "ministryEn": "Ministry of Digital Economy, Digitalization and Innovation",
+    "pricing": "Accès gratuit - sur inscription",
+    "pricingEn": "Free admission - registration required",
+    "audience": "Ouvert à tous",
+    "audienceEn": "Open to all",
+    "motto": "Union • Travail • Justice",
+    "bannerNotice": "Inscriptions ouvertes : obtenez votre badge pour la Gabon Digital Week, du 26 au 30 octobre 2026, au Palais des Congrès Omar Bongo Ondimba, à Libreville.",
+    "bannerNoticeEn": "Registrations open: get your badge for Gabon Digital Week, October 26 to 30, 2026, at the Palais des Congrès Omar Bongo Ondimba, Libreville.",
+    "bannerActive": true,
+    "contactEmail": "contact@mendi.gouv.ga",
+    "pressEmail": "presse@mendi.gouv.ga",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/company/minist%C3%A8re-de-l-%C3%A9conomie-num%C3%A9rique-de-la-digitalisation-et-de-l-innovation/",
+      "whatsapp": "https://whatsapp.com/channel/0029VbBKrwJ2kNFuB8frJv0L"
+    },
+    "minister": {
+      "name": "Mark-Alexandre DOUMBA",
+      "title": "Ministre de l'Économie Numérique, de la Digitalisation et de l'Innovation",
+      "titleEn": "Minister of Digital Economy, Digitalization and Innovation",
+      "government": "Gouvernement de la République Gabonaise",
+      "governmentEn": "Government of the Gabonese Republic",
+      "bio": "En charge du pilotage de la transition technologique nationale, de la mise en œuvre de la Stratégie Nationale de Digitalisation et d'Innovation, de la souveraineté des données et de l'inclusion numérique.",
+      "bioEn": "Leading the national technological transition, implementing the National Digitalization and Innovation Strategy, data sovereignty and digital inclusion.",
+      "photo": "/marc_alexandre_doumba.png"
+    }
+  },
+  "stats": [
+    {
+      "id": "s1",
+      "value": "5",
+      "label": "Jours d'échanges",
+      "labelEn": "Days of exchanges",
+      "detail": "Plénières, panels & ateliers",
+      "detailEn": "Plenaries, panels & workshops"
+    },
+    {
+      "id": "s2",
+      "value": "~600",
+      "label": "Participants",
+      "labelEn": "Participants",
+      "detail": "Délégués, experts, grand public",
+      "detailEn": "Delegates, experts, public"
+    },
+    {
+      "id": "s3",
+      "value": "15+",
+      "label": "Ministres africains",
+      "labelEn": "African ministers",
+      "detail": "Délégations continentales",
+      "detailEn": "Continental delegations"
+    },
+    {
+      "id": "s4",
+      "value": "1",
+      "label": "Déclaration de Libreville",
+      "labelEn": "Libreville Declaration",
+      "detail": "Souveraineté numérique",
+      "detailEn": "Digital sovereignty"
+    },
+    {
+      "id": "s5",
+      "value": "~15",
+      "label": "Stands d'exposition",
+      "labelEn": "Exhibition booths",
+      "detail": "Au Village du Numérique",
+      "detailEn": "At Digital Village"
+    }
+  ],
+  "pillars": [
+    {
+      "id": "p1",
+      "number": "01",
+      "title": "Souveraineté",
+      "titleEn": "Sovereignty",
+      "subtitle": "Maîtriser nos données, nos réseaux et nos technologies",
+      "subtitleEn": "Mastering our data, networks and technologies",
+      "desc": "De la gouvernance des données à la cybersécurité, des réseaux satellitaires, hertziens et en fibre optique à l'intelligence artificielle.",
+      "descEn": "From data governance to cybersecurity, satellite, broadcast and fiber optic networks to artificial intelligence."
+    },
+    {
+      "id": "p2",
+      "number": "02",
+      "title": "Inclusion",
+      "titleEn": "Inclusion",
+      "subtitle": "Faire du numérique une chance pour tous",
+      "subtitleEn": "Making digital technology an opportunity for all",
+      "desc": "Avec les métiers, les formations et les emplois du secteur, et le renforcement des capacités des décideurs et des experts africains.",
+      "descEn": "Through skills, training and employment in the sector, and capacity building for African decision-makers and experts."
+    },
+    {
+      "id": "p3",
+      "number": "03",
+      "title": "Innovation",
+      "titleEn": "Innovation",
+      "subtitle": "Faire émerger, financer et déployer les solutions gabonaises",
+      "subtitleEn": "Emerging, financing and scaling Gabonese solutions",
+      "desc": "Faire émerger, financer et déployer les produits et services numériques gabonais, en mettant en relation startups, investisseurs et administrations.",
+      "descEn": "Bringing forth, funding and scaling Gabonese digital products and services by connecting startups, investors and administrations."
+    }
+  ],
+  "objectives": {
+    "list": [
+      "Présenter au Gouvernement la Stratégie Nationale de Digitalisation et d'Innovation et son plan de mise en œuvre.",
+      "Élaborer la « Déclaration de Libreville » sur la souveraineté technologique, la gouvernance des données, la cybersécurité, les réseaux et l'intelligence artificielle.",
+      "Faire connaître au public les métiers, les formations et les opportunités d'emploi du secteur du numérique.",
+      "Promouvoir les innovations, produits et services numériques développés au Gabon.",
+      "Valoriser les politiques publiques, les infrastructures et les projets de digitalisation, au Gabon et sur le continent.",
+      "Mettre en relation les administrations, les entreprises, les investisseurs, les universités, les centres de recherche, les startups et les porteurs de projets.",
+      "Redynamiser l'Institut Africain de l'Informatique (IAI) lors d'un Conseil d'Administration extraordinaire.",
+      "Renforcer les capacités des décideurs et des experts africains grâce à un séminaire exécutif conçu avec MIT Professional Education.",
+      "Favoriser l'émergence, le financement et le passage à l'échelle des startups africaines, avec la GSMA, le Centre Gabonais de l'Innovation, le Programme KIMBA et la Fédération des Entreprises du Gabon.",
+      "Soutenir la candidature du Gabon au Conseil de l'UIT et consolider la coordination politique des délégations africaines en vue de la PP-26."
+    ],
+    "listEn": [
+      "Present the National Digitalization and Innovation Strategy and its implementation roadmap to the Government.",
+      "Draft the 'Libreville Declaration' on technological sovereignty, data governance, cybersecurity, telecommunications and artificial intelligence.",
+      "Showcase digital careers, training opportunities and job creation prospects to the public.",
+      "Promote digital innovations, products and services developed in Gabon.",
+      "Highlight public policies, strategic digital infrastructure and connectivity projects across Gabon and the continent.",
+      "Foster high-level networking between public administrations, enterprises, investors, academia, research hubs and startups.",
+      "Revitalize the African Institute of Computer Science (IAI) during an extraordinary Board of Directors meeting.",
+      "Strengthen leadership capabilities through an executive seminar designed in collaboration with MIT Professional Education.",
+      "Accelerate the growth, financing and scaling of African startups with GSMA, CGI, Programme KIMBA and the Federation of Gabonese Enterprises.",
+      "Mobilize active support for Gabon's candidacy for the ITU Council ahead of PP-26 in Doha."
+    ],
+    "results": [
+      "Adoption de la Déclaration de Libreville sur la souveraineté technologique de l'Afrique, la gouvernance des données, la cybersécurité, les communications satellitaires, les réseaux non terrestres et l'intelligence artificielle.",
+      "Mise en place d'un mécanisme africain de coordination politique jusqu'à la Conférence de plénipotentiaires de Doha (PP-26).",
+      "Publication d'un rapport sur l'état du numérique au Gabon, réalisé par la GSMA.",
+      "Repositionnement stratégique de l'Institut Africain de l'Informatique (IAI).",
+      "Constitution d'un portefeuille de projets et de startups à financer.",
+      "Conclusion de partenariats de formation, d'investissement et de coopération technologique.",
+      "Renforcement de la visibilité diplomatique du Gabon et soutien actif à sa candidature au Conseil de l'UIT."
+    ],
+    "resultsEn": [
+      "Official adoption of the Libreville Declaration on Africa's technological sovereignty, data governance and AI.",
+      "Establishment of an African ministerial coordination mechanism ahead of the ITU Plenipotentiary Conference (PP-26) in Doha.",
+      "Release of the GSMA Country Report on the state of mobile and digital economy in Gabon.",
+      "Strategic repositioning of the African Institute of Computer Science (IAI).",
+      "Establishment of an investment pipeline for high-potential tech startups.",
+      "Signing of bilateral agreements in executive training, technological investments and regional cooperation.",
+      "Enhanced diplomatic leadership and international support for Gabon's seat on the ITU Council."
+    ],
+    "uitCandidacy": "La Gabon Digital Week se tient quelques semaines avant la Conférence des plénipotentiaires de l'UIT (PP-26), à Doha. Elle est l'occasion de mobiliser les soutiens bilatéraux et multilatéraux des pays membres de l'Union Africaine en faveur de la candidature du Gabon au Conseil de l'UIT, et de renforcer la visibilité diplomatique du pays.",
+    "uitCandidacyEn": "Gabon Digital Week takes place just weeks before the ITU Plenipotentiary Conference (PP-26) in Doha. It offers a premier platform to mobilize bilateral and multilateral backing from African Union member states for Gabon's candidacy to the ITU Council."
+  },
+  "agenda": [
+    {
+      "id": "gdw-101",
+      "day": "Jour 1",
+      "dayEn": "Day 1",
+      "date": "Lundi 26 octobre 2026",
+      "dateEn": "Monday, October 26, 2026",
+      "time": "08:30 - 10:00",
+      "title": "Accueil protocolaire, enregistrement et visite du Village du Numérique",
+      "titleEn": "Protocol reception, registration and opening tour of the Digital Village",
+      "room": "Hall d'Honneur",
+      "category": "Cérémonie",
+      "speaker": "Comité d'organisation",
+      "description": "Arrivée des délégations officielles et des corps diplomatiques, remise des badges sécurisés et visite inaugurale du Village du Numérique.",
+      "descriptionEn": "Arrival of official delegations and diplomatic corps, delivery of security badges and opening walk-through of the Digital Village."
+    },
+    {
+      "id": "gdw-102",
+      "day": "Jour 1",
+      "dayEn": "Day 1",
+      "date": "Lundi 26 octobre 2026",
+      "dateEn": "Monday, October 26, 2026",
+      "time": "10:30 - 12:30",
+      "title": "Discours d'orientation ministériel",
+      "titleEn": "Ministerial Keynote Address",
+      "room": "Grande Plénière",
+      "category": "Plénière",
+      "speaker": "Mark-Alexandre DOUMBA, Ministre de l'Économie Numérique, de la Digitalisation et de l'Innovation",
+      "description": "Allocution d'ouverture de la 1ère édition et présentation au Gouvernement de la Stratégie Nationale de Digitalisation et d'Innovation et de son plan de mise en œuvre.",
+      "descriptionEn": "Opening address of the 1st edition and formal presentation of the National Digitalization and Innovation Strategy."
+    },
+    {
+      "id": "gdw-103",
+      "day": "Jour 1",
+      "dayEn": "Day 1",
+      "date": "Lundi 26 octobre 2026",
+      "dateEn": "Monday, October 26, 2026",
+      "time": "14:30 - 16:30",
+      "title": "Panel ministériel : construire la souveraineté numérique de l'Afrique",
+      "titleEn": "Ministerial Panel: Building Africa's Digital Sovereignty",
+      "room": "Grande Plénière",
+      "category": "Panel",
+      "speaker": "Ministres africains chargés du numérique, Union Africaine, UIT, UAT",
+      "description": "Souveraineté technologique, gouvernance des données, cybersécurité, réseaux satellitaires et intelligence artificielle : les orientations de la future Déclaration de Libreville.",
+      "descriptionEn": "Technological sovereignty, data governance, cybersecurity, satellite networks and artificial intelligence: foundations of the Libreville Declaration."
+    },
+    {
+      "id": "gdw-201",
+      "day": "Jour 2",
+      "dayEn": "Day 2",
+      "date": "Mardi 27 octobre 2026",
+      "dateEn": "Tuesday, October 27, 2026",
+      "time": "09:00 - 12:30",
+      "title": "Séminaire exécutif de haut niveau conçu avec MIT Professional Education",
+      "titleEn": "Executive High-Level Seminar with MIT Professional Education",
+      "room": "Salle de Conférence A",
+      "category": "Atelier",
+      "speaker": "MIT Professional Education & Experts internationaux",
+      "description": "Renforcement des capacités des décideurs et des experts africains sur les technologies émergentes, l'IA responsable et l'architecture des systèmes de données souverains.",
+      "descriptionEn": "Capacity building for African decision-makers and technology executives on emerging tech, AI and sovereign data architectures."
+    },
+    {
+      "id": "gdw-202",
+      "day": "Jour 2",
+      "dayEn": "Day 2",
+      "date": "Mardi 27 octobre 2026",
+      "dateEn": "Tuesday, October 27, 2026",
+      "time": "14:30 - 17:00",
+      "title": "Panels de haut niveau : Souveraineté et gouvernance des données",
+      "titleEn": "High-Level Panels: Sovereignty and Data Governance",
+      "room": "Grande Plénière",
+      "category": "Panel",
+      "speaker": "Régulateurs, ANINF, ARCEP, APDPVP & Opérateurs",
+      "description": "Enjeux de la cybersécurité des infrastructures critiques, protection des données à caractère personnel et régulation des réseaux non terrestres.",
+      "descriptionEn": "Critical infrastructure cybersecurity, data privacy laws and regulation of non-terrestrial telecommunications networks."
+    },
+    {
+      "id": "gdw-301",
+      "day": "Jour 3",
+      "dayEn": "Day 3",
+      "date": "Mercredi 28 octobre 2026",
+      "dateEn": "Wednesday, October 28, 2026",
+      "time": "09:00 - 12:30",
+      "title": "Road to Doha : Coordination politique des délégations africaines avant la PP-26",
+      "titleEn": "Road to Doha: African Delegations Political Coordination ahead of PP-26",
+      "room": "Salon Ministériel",
+      "category": "Plénière",
+      "speaker": "Ministres africains chargés du numérique & Secrétariats généraux",
+      "description": "Harmonisation des positions continentales en vue de la Conférence des plénipotentiaires de l'UIT (Doha, nov. 2026) et soutien à la candidature du Gabon.",
+      "descriptionEn": "Harmonization of continental positions for the ITU Plenipotentiary Conference (Doha, Nov. 2026) and support for Gabon's seat."
+    },
+    {
+      "id": "gdw-302",
+      "day": "Jour 3",
+      "dayEn": "Day 3",
+      "date": "Mercredi 28 octobre 2026",
+      "dateEn": "Wednesday, October 28, 2026",
+      "time": "14:30 - 17:00",
+      "title": "Conseil d'Administration extraordinaire de l'Institut Africain de l'Informatique (IAI)",
+      "titleEn": "Extraordinary Board Meeting of the African Institute of Computer Science (IAI)",
+      "room": "Salle IAI",
+      "category": "Cérémonie",
+      "speaker": "Administrateurs de l'IAI & Représentants des États membres",
+      "description": "Session stratégique dédiée à la redynamisation académique, scientifique et financière de l'IAI pour répondre aux besoins de formation de l'Afrique.",
+      "descriptionEn": "Strategic session focused on revitalizing academic curriculum and financial resilience of IAI to train Africa's tech leaders."
+    },
+    {
+      "id": "gdw-401",
+      "day": "Jour 4",
+      "dayEn": "Day 4",
+      "date": "Jeudi 29 octobre 2026",
+      "dateEn": "Thursday, October 29, 2026",
+      "time": "09:00 - 12:30",
+      "title": "Journée Startups : Émergence, financement et passage à l'échelle",
+      "titleEn": "Startups Day: Emergence, Venture Funding and Scaling",
+      "room": "Espace Innovation & Grande Plénière",
+      "category": "Startups",
+      "speaker": "Startups, Investisseurs, CGI, GSMA, FEG",
+      "description": "Panels thématiques dédiés aux jeunes pousses africaines, rencontres B2B investisseurs-créateurs et intégration des innovations dans la commande publique.",
+      "descriptionEn": "Dedicated startup panels, VC matchmaking sessions and integration of homegrown innovations into public procurement."
+    },
+    {
+      "id": "gdw-402",
+      "day": "Jour 4",
+      "dayEn": "Day 4",
+      "date": "Jeudi 29 octobre 2026",
+      "dateEn": "Thursday, October 29, 2026",
+      "time": "14:00 - 17:30",
+      "title": "Finale nationale du KIMBA Connect",
+      "titleEn": "National Finals of KIMBA Connect",
+      "room": "Grande Plénière",
+      "category": "Startups",
+      "speaker": "Finalistes KIMBA Connect & Jury de référence",
+      "description": "Présentation des solutions numériques gabonaises d'excellence devant les fonds d'investissement, le Centre Gabonais de l'Innovation et le Programme KIMBA.",
+      "descriptionEn": "Pitch presentations of Gabon's leading digital innovations in front of venture capital funds and Programme KIMBA."
+    },
+    {
+      "id": "gdw-501",
+      "day": "Jour 5",
+      "dayEn": "Day 5",
+      "date": "Vendredi 30 octobre 2026",
+      "dateEn": "Friday, October 30, 2026",
+      "time": "09:30 - 12:30",
+      "title": "Adoption solennelle de la Déclaration de Libreville",
+      "titleEn": "Solemn Adoption of the Libreville Declaration",
+      "room": "Grande Plénière",
+      "category": "Plénière",
+      "speaker": "Délégations ministérielles africaines & Organisations internationales",
+      "description": "Lecture, examen et adoption finale de la Déclaration de Libreville sur la souveraineté technologique, les données et l'intelligence artificielle.",
+      "descriptionEn": "Review and formal adoption of the Libreville Declaration on technological sovereignty and artificial intelligence."
+    },
+    {
+      "id": "gdw-502",
+      "day": "Jour 5",
+      "dayEn": "Day 5",
+      "date": "Vendredi 30 octobre 2026",
+      "dateEn": "Friday, October 30, 2026",
+      "time": "15:00 - 17:00",
+      "title": "Cérémonie officielle de clôture de la 1ère édition",
+      "titleEn": "Official Closing Ceremony of the 1st Edition",
+      "room": "Grande Plénière",
+      "category": "Cérémonie",
+      "speaker": "Hautes Autorités de l'État & Ministre Mark-Alexandre DOUMBA",
+      "description": "Bilan officiel de la Gabon Digital Week 2026, perspectives d'action vers Doha (PP-26) et cocktail républicain de clôture.",
+      "descriptionEn": "Official synthesis of Gabon Digital Week 2026, roadmap towards PP-26 and farewell cocktail."
+    }
+  ],
+  "dayThemes": [
+    { "day": 1, "date": "26 oct.", "theme": "Ouverture officielle", "themeEn": "Official Opening" },
+    { "day": 2, "date": "27 oct.", "theme": "Souveraineté et gouvernance", "themeEn": "Sovereignty and Governance" },
+    { "day": 3, "date": "28 oct.", "theme": "Road to Doha & IAI", "themeEn": "Road to Doha & IAI" },
+    { "day": 4, "date": "29 oct.", "theme": "Startups et innovation (KIMBA Connect)", "themeEn": "Startups and Innovation (KIMBA Connect)" },
+    { "day": 5, "date": "30 oct.", "theme": "Adoption de la Déclaration de Libreville", "themeEn": "Adoption of the Libreville Declaration" }
+  ],
+  "partnerCategories": [
+    {
+      "id": "cat-org",
+      "title": "Organisation",
+      "titleEn": "Organization",
+      "partners": [
+        "Gouvernement de la République Gabonaise",
+        "Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI)"
+      ]
+    },
+    {
+      "id": "cat-coord",
+      "title": "Coordination générale",
+      "titleEn": "General Coordination",
+      "partners": [
+        "Vice-Présidence du Gouvernement"
+      ]
+    },
+    {
+      "id": "cat-inst",
+      "title": "Institutions et administrations",
+      "titleEn": "Institutions & Administrations",
+      "partners": [
+        "Présidence de la République Gabonaise",
+        "Ministère des Affaires Étrangères",
+        "Ministère de l'Économie et des Participations",
+        "Ministère de l'Intérieur et de la Sécurité",
+        "Ministère de la Communication",
+        "Ministère des Transports",
+        "ARCEP (Autorité de Régulation des Communications Électroniques et des Postes)",
+        "ANINF (Agence Nationale des Infrastructures Numériques et des Fréquences)",
+        "SPIN (Société de Patrimoine des Infrastructures Numériques)",
+        "AGEOS (Agence Gabonaise d'Études et d'Observations Spatiales)",
+        "Centre Gabonais de l'Innovation (CGI)",
+        "Programme KIMBA",
+        "APDPVP (Autorité de Protection des Données Personnelles et de la Vie Privée)"
+      ]
+    },
+    {
+      "id": "cat-corp",
+      "title": "Opérateurs et entreprises",
+      "titleEn": "Operators & Enterprises",
+      "partners": [
+        "Moov Africa Gabon Télécom",
+        "Airtel Gabon",
+        "GVA Gabon (CanalBox)",
+        "Fédération des Entreprises du Gabon (FEG)"
+      ]
+    },
+    {
+      "id": "cat-intl",
+      "title": "Partenaires internationaux",
+      "titleEn": "International Partners",
+      "partners": [
+        "Commission de l'Union Africaine (CTS-CTIC)",
+        "Union Internationale des Télécommunications (UIT)",
+        "Union Africaine des Télécommunications (UAT)",
+        "MIT Professional Education",
+        "GSMA",
+        "Institut Africain de l'Informatique (IAI)"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "q": "Qu'est-ce que le Gabon Digital Week ?",
+      "qEn": "What is Gabon Digital Week?",
+      "a": "Le Gabon Digital Week est la Semaine du Numérique organisée par le Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI). Cette 1ère édition réunit les institutions, les entreprises, les partenaires et les startups autour de la transformation numérique du Gabon.",
+      "aEn": "Gabon Digital Week is the official Digital Week organized by the Ministry of Digital Economy, Digitalization and Innovation (MENDI). This 1st edition convenes institutions, businesses, partners and startups around Gabon's digital transformation."
+    },
+    {
+      "id": "f2",
+      "q": "Quand et où se déroule l'événement ?",
+      "qEn": "When and where does the event take place?",
+      "a": "Du 26 au 30 octobre 2026, au Palais des Congrès Omar Bongo Ondimba, à Libreville, Gabon.",
+      "aEn": "From October 26 to 30, 2026, at the Palais des Congrès Omar Bongo Ondimba, in Libreville, Gabon."
+    },
+    {
+      "id": "f3",
+      "q": "Qui peut participer ?",
+      "qEn": "Who can attend?",
+      "a": "L'événement est ouvert à tous : institutions publiques, délégations africaines, entreprises, opérateurs, partenaires techniques et financiers, startups, étudiants, professionnels et grand public. Environ 600 participants sont attendus.",
+      "aEn": "The event is open to all: public institutions, African delegations, businesses, telecom operators, financial partners, startups, students, tech professionals and the general public. Approximately 600 attendees are expected."
+    },
+    {
+      "id": "f4",
+      "q": "La participation est-elle payante ?",
+      "qEn": "Is attendance paid or free?",
+      "a": "L'accès est gratuit - sur inscription préalable obligatoire sur le site officiel.",
+      "aEn": "Attendance is completely free - prior registration on this official platform is mandatory."
+    },
+    {
+      "id": "f5",
+      "q": "Comment s'inscrire et obtenir son badge ?",
+      "qEn": "How do I register and receive my badge?",
+      "a": "Remplissez le formulaire de la page « Inscription et badge ». Une confirmation vous est transmise par courriel avec votre matricule. Le badge nominatif sécurisé est exigé pour accéder à l'enceinte du Palais des Congrès. Prévoyez une pièce d'identité.",
+      "aEn": "Fill out the registration form on the 'Registration and Badge' page. A confirmation with your accreditation code is sent via email. A valid photo ID is required upon entry."
+    },
+    {
+      "id": "f6",
+      "q": "Comment les startups peuvent-elles participer ?",
+      "qEn": "How can startups participate?",
+      "a": "Le jeudi 29 octobre est intégralement consacré aux startups, avec des panels de haut niveau, des rencontres avec les investisseurs et la finale du KIMBA Connect. Les startups intéressées peuvent se manifester via la page « Startups ».",
+      "aEn": "Thursday, October 29 is entirely dedicated to startups, with high-level panels, venture capital networking and the KIMBA Connect finals. Startups can apply through the 'Startups' page."
+    },
+    {
+      "id": "f7",
+      "q": "Comment devenir partenaire ou exposant au Village du Numérique ?",
+      "qEn": "How can we exhibit at the Digital Village or become a partner?",
+      "a": "Le Village du Numérique accueille une quinzaine de stands. Vous pouvez nous écrire via le formulaire de contact avec l'objet « Village du numérique et stands » ou « Partenariat et sponsoring ».",
+      "aEn": "The Digital Village hosts around 15 curated exhibition booths. Reach out through our official contact form with the subject 'Digital Village and booths' or 'Partnership and sponsorship'."
+    },
+    {
+      "id": "f8",
+      "q": "Comment obtenir une accréditation presse ?",
+      "qEn": "How do journalists get press accreditation?",
+      "a": "Déposez votre demande dans l'Espace Médias de la Salle de presse, en joignant votre carte de presse ou une lettre de mission. L'équipe communication examine chaque demande et vous répond par courriel.",
+      "aEn": "Submit your credentials in the Press Room media section, attaching your press card or letter of assignment. The communications team will respond by email."
+    },
+    {
+      "id": "f9",
+      "q": "Où trouver le programme détaillé ?",
+      "qEn": "Where can I find the detailed schedule?",
+      "a": "Sur la page « Programme » du site officiel, mise à jour au fur et à mesure de la validation des sessions par la commission Scientifique.",
+      "aEn": "On the official 'Program' page, continuously updated as sessions are confirmed by the Scientific Committee."
+    }
+  ],
+  "practicalInfo": {
+    "venue": {
+      "name": "Palais des Congrès Omar Bongo Ondimba",
+      "address": "Boulevard Triomphal Omar Bongo, Libreville, République Gabonaise",
+      "notes": "Site officiel de l'événement. Toutes les démarches passent par le Ministère, seul interlocuteur officiel."
+    },
+    "evisa": {
+      "title": "Assistance e-Visa",
+      "titleEn": "e-Visa Assistance",
+      "desc": "Vous avez besoin d'un visa pour entrer au Gabon ? Cochez simplement la case d'assistance e-visa lors de votre inscription en ligne : l'équipe d'organisation vous accompagne pour faciliter la délivrance rapide de votre autorisation d'entrée.",
+      "descEn": "If you require an entry visa for Gabon, check the e-visa assistance option during online registration: our protocol team will facilitate fast-track processing."
+    },
+    "accommodation": {
+      "title": "Hébergement",
+      "titleEn": "Accommodation",
+      "desc": "La liste des hôtels partenaires et recommandations proches du Palais des Congrès est mise à disposition des délégations par la commission Logistique, Transport et Hébergement.",
+      "descEn": "A curated list of partner hotels located near the Palais des Congrès is provided to delegates by the Logistics & Accommodation Committee."
+    },
+    "transport": {
+      "title": "Navettes & Transport",
+      "titleEn": "Shuttles & Transport",
+      "desc": "Des navettes et bus dédiés sont organisés pour les participants officiels entre l'Aéroport International Léon Mba, les principaux hôtels et le Palais des Congrès.",
+      "descEn": "Dedicated shuttles are arranged for participants connecting Léon Mba International Airport, key hotels and the venue."
+    },
+    "badge": {
+      "title": "Badge d'accès obligatoire",
+      "titleEn": "Mandatory Access Badge",
+      "desc": "Le badge nominatif est strictement obligatoire pour entrer dans l'enceinte de l'événement. Il vous est transmis par e-mail après validation de votre inscription.",
+      "descEn": "Personalized identification badges are strictly required for entry. Badges are emailed upon registration approval."
+    },
+    "catering": {
+      "title": "Restauration & Pauses",
+      "titleEn": "Catering & Coffee Breaks",
+      "desc": "Cocktail d'ouverture, pauses-café et déjeuners sont organisés au sein des espaces du Palais des Congrès pour l'ensemble des sessions plénières et panels.",
+      "descEn": "Opening cocktail, networking coffee breaks and luncheons are served inside the venue."
+    },
+    "health": {
+      "title": "Dispositif médical & Santé",
+      "titleEn": "Medical & Health Support",
+      "desc": "Une infirmerie et un poste médical d'urgence sont installés en permanence au Palais des Congrès, en liaison directe avec le SAMU national de Libreville.",
+      "descEn": "An emergency medical unit is stationed at the Palais des Congrès in constant coordination with national medical services."
+    }
+  },
+  "pressRelease": {
+    "title": "Le Gabon accueille la 1ère édition du Gabon Digital Week, du 26 au 30 octobre 2026 à Libreville",
+    "titleEn": "Gabon hosts the 1st edition of Gabon Digital Week, October 26 to 30, 2026 in Libreville",
+    "location": "Libreville",
+    "content": "Le Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI) organise la 1ère édition du Gabon Digital Week – Semaine du Numérique, du 26 au 30 octobre 2026, au Palais des Congrès Omar Bongo Ondimba, à Libreville.\n\nPendant cinq jours, environ 600 participants sont attendus : institutions, entreprises, partenaires, startups et jeunes talents. Au programme : conférences et panels de haut niveau, un Village du Numérique d'une quinzaine de stands, une journée dédiée aux startups le jeudi 29 octobre avec la finale du KIMBA Connect, et un séminaire exécutif conçu avec MIT Professional Education. Les échanges doivent aboutir à la Déclaration de Libreville sur la souveraineté numérique.\n\nCette première édition s'inscrit également dans la préparation de la Conférence des plénipotentiaires de l'UIT (PP-26), qui se tiendra à Doha du 9 au 27 novembre 2026, où le Gabon porte sa candidature au Conseil de l'UIT.",
+    "contentEn": "The Ministry of Digital Economy, Digitalization and Innovation (MENDI) convenes the 1st edition of Gabon Digital Week, from October 26 to 30, 2026, at the Palais des Congrès Omar Bongo Ondimba, Libreville.\n\nOver five days, around 600 delegates are expected: institutions, tech corporations, international partners, startups and innovators. Program highlights include high-level plenaries, a 15-booth Digital Village, a dedicated Startups Day on Thursday October 29 featuring the KIMBA Connect finals, and an executive seminar co-designed with MIT Professional Education. Deliberations will culminate in the historic Libreville Declaration on technological sovereignty.\n\nThis inaugural edition also serves as a strategic milestone ahead of the ITU Plenipotentiary Conference (PP-26) in Doha, mobilizing continental backing for Gabon's seat on the ITU Council."
+  },
+  "registrations": [
+    {
+      "id": "GDW-2026-001",
+      "name": "Jean-Félix Ondo",
+      "email": "jf.ondo@innovgabon.ga",
+      "phone": "+241 77 12 34 56",
+      "country": "Gabon",
+      "organization": "Innov Gabon Labs",
+      "role": "Directeur Technique",
+      "type": "Startup",
+      "visaAssistance": false,
+      "badgeCode": "GDW-START-001",
+      "status": "Confirmé",
+      "registeredAt": "2026-10-01T10:15:00Z"
+    },
+    {
+      "id": "GDW-2026-002",
+      "name": "Christelle Mba Mintsa",
+      "email": "c.mba@fintech-libreville.com",
+      "phone": "+241 66 98 76 54",
+      "country": "Gabon",
+      "organization": "PayGabon Solutions",
+      "role": "Directrice Générale",
+      "type": "Entreprise ou opérateur",
+      "visaAssistance": false,
+      "badgeCode": "GDW-ENTR-002",
+      "status": "Confirmé",
+      "registeredAt": "2026-10-02T14:20:00Z"
+    },
+    {
+      "id": "GDW-2026-003",
+      "name": "Patrick Obame",
+      "email": "p.obame@aninf.ga",
+      "phone": "+241 74 11 22 33",
+      "country": "Gabon",
+      "organization": "ANINF",
+      "role": "Architecte Réseau & Cloud",
+      "type": "Institution publique",
+      "visaAssistance": false,
+      "badgeCode": "GDW-INST-003",
+      "status": "Confirmé",
+      "registeredAt": "2026-10-03T09:45:00Z"
+    },
+    {
+      "id": "GDW-2026-004",
+      "name": "Dr. Sarah Biloghe",
+      "email": "s.biloghe@ustm.ga",
+      "phone": "+241 76 55 44 33",
+      "country": "Gabon",
+      "organization": "Université des Sciences et Techniques de Masuku",
+      "role": "Enseignante-Chercheuse en Informatique",
+      "type": "Université et recherche",
+      "visaAssistance": false,
+      "badgeCode": "GDW-UNIV-004",
+      "status": "Confirmé",
+      "registeredAt": "2026-10-04T16:10:00Z"
+    },
+    {
+      "id": "GDW-2026-005",
+      "name": "Ibrahima Diallo",
+      "email": "i.diallo@ua-telecom.org",
+      "phone": "+251 91 123 4567",
+      "country": "Éthiopie",
+      "organization": "Commission de l'Union Africaine (CTS-CTIC)",
+      "role": "Conseiller Principal Télécoms",
+      "type": "Délégation officielle",
+      "visaAssistance": true,
+      "badgeCode": "GDW-DELE-005",
+      "status": "Confirmé",
+      "registeredAt": "2026-10-05T11:30:00Z"
+    }
+  ],
+  "pressAccreditations": [
+    {
+      "id": "PRESS-2026-001",
+      "name": "Arnaud Ndong",
+      "media": "Gabon Télévision / Gabon 1ère",
+      "role": "Grand Reporter",
+      "mediaType": "Télévision",
+      "country": "Gabon",
+      "email": "a.ndong@gabontele.ga",
+      "phone": "+241 77 88 99 00",
+      "days": "Tous les jours (26 au 30 oct.)",
+      "proofFile": "carte_presse_gabontv.pdf",
+      "status": "Confirmé",
+      "submittedAt": "2026-10-05T15:20:00Z"
+    },
+    {
+      "id": "PRESS-2026-002",
+      "name": "Claire Vance",
+      "media": "Tech Africa Today",
+      "role": "Correspondante Afrique Centrale",
+      "mediaType": "Web",
+      "country": "France",
+      "email": "c.vance@techafricatoday.com",
+      "phone": "+33 6 12 34 56 78",
+      "days": "26, 27 et 29 oct.",
+      "proofFile": "press_credential_techafrica.jpg",
+      "status": "Confirmé",
+      "submittedAt": "2026-10-06T09:10:00Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "MSG-2026-001",
+      "name": "Marcelle Koumba",
+      "email": "m.koumba@greencloud.ga",
+      "phone": "+241 65 44 33 22",
+      "organization": "GreenCloud Gabon",
+      "subject": "Village du numérique et stands",
+      "message": "Bonjour, nous souhaitons réserver un stand au Village du Numérique pour présenter nos solutions d'hébergement éco-responsable. Merci de nous transmettre le dossier exposant.",
+      "date": "2026-10-07T14:35:00Z",
+      "status": "Nouveau"
+    }
+  ]
+}

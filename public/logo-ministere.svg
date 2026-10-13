@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&amp;display=swap');
+      .min-title { font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 20px; fill: #002B49; text-anchor: middle; letter-spacing: -0.2px; }
+      .min-country { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 11px; fill: #002B49; text-anchor: middle; letter-spacing: 0.8px; }
+      .min-motto { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 9.5px; fill: #002B49; text-anchor: middle; letter-spacing: 0.5px; }
+    </style>
+  </defs>
+
+  <!-- Drapeau gabonais en arrière-plan de l'emblème -->
+  <g transform="translate(60, 15)">
+    <rect x="0" y="0" width="280" height="52" fill="#008751" rx="4" />
+    <rect x="0" y="52" width="280" height="52" fill="#FCD116" />
+    <rect x="0" y="104" width="280" height="52" fill="#0047AB" rx="4" />
+
+    <!-- Disque central blanc officiel -->
+    <circle cx="140" cy="78" r="68" fill="#FFFFFF" stroke="#002B49" stroke-width="2.5" />
+
+    <!-- Texte supérieur du disque: RÉPUBLIQUE GABONAISE -->
+    <path id="curve-top" d="M 82 82 A 58 58 0 0 1 198 82" fill="none" />
+    <text font-family="'Poppins', sans-serif" font-size="9" font-weight="800" fill="#002B49" text-anchor="middle">
+      <textPath href="#curve-top" startOffset="50%">RÉPUBLIQUE GABONAISE</textPath>
+    </text>
+
+    <!-- Écusson Mère et Enfant stylisé -->
+    <g transform="translate(140, 78) scale(0.9)">
+      <!-- Silhouette Maternité Gabonaise -->
+      <circle cx="0" cy="-22" r="9" fill="#002B49" />
+      <path d="M -16, -6 C -16, -14 16, -14 16, -6 C 18, 8 10, 20 0, 22 C -10, 20 -18, 8 -16, -6 Z" fill="#002B49" />
+      <!-- Enfant au sein -->
+      <circle cx="-6" cy="-2" r="5" fill="#FFFFFF" />
+      <path d="M -12, 5 C -12, -1 0, -1 0, 5 C 0, 12 -8, 14 -12, 5 Z" fill="#FFFFFF" />
+    </g>
+
+    <!-- Texte inférieur du disque: UNION • TRAVAIL • JUSTICE -->
+    <path id="curve-bottom" d="M 85 82 A 58 58 0 0 0 195 82" fill="none" />
+    <text font-family="'Poppins', sans-serif" font-size="7.5" font-weight="700" fill="#002B49" text-anchor="middle">
+      <textPath href="#curve-bottom" startOffset="50%">UNION • TRAVAIL • JUSTICE</textPath>
+    </text>
+  </g>
+
+  <!-- Texte officiel du Ministère (en bas de l'emblème) -->
+  <text x="200" y="215" class="min-title">MINISTÈRE DE</text>
+  <text x="200" y="244" class="min-title">L'ÉCONOMIE NUMÉRIQUE</text>
+  <text x="200" y="272" class="min-title">DE LA DIGITALISATION</text>
+  <text x="200" y="300" class="min-title">ET DE L'INNOVATION</text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Semaine du Numérique Gabon",
+  "description": "Portail officiel de la Gabon Digital Week (Semaine du numérique · 1ère édition) de la République Gabonaise, Palais des Congrès Omar Bongo Ondimba, Libreville.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
