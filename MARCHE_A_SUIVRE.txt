@@ -149,13 +149,3 @@ Exemple de configuration Reverse Proxy Nginx :
           proxy_cache_bypass $http_upgrade;
       }
   }
-
-
---------------------------------------------------------------------------------
-8. CONTACT TECHNIQUE & SUPPORT
---------------------------------------------------------------------------------
-Pour toute question d'exploitation ou d'assistance :
-  - Ministère : contact@mendi.gouv.ga
-  - Salle de presse : presse@mendi.gouv.ga
-  - Libreville, République Gabonaise
-================================================================================
