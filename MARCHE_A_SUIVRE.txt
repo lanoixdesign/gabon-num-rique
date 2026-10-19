@@ -1,0 +1,161 @@
+================================================================================
+GABON DIGITAL WEEK 2026 (SEMAINE DU NUMÉRIQUE · 1ÈRE ÉDITION)
+PORTAIL OFFICIEL DE LA RÉPUBLIQUE GABONAISE (MENDI)
+GUIDE D'INSTALLATION, D'EXÉCUTION ET DE DÉPLOIEMENT (NODE.JS)
+================================================================================
+
+Date : Octobre 2026
+Ministère de l'Économie Numérique, de la Digitalisation et de l'Innovation (MENDI)
+Événement : 26 au 30 octobre 2026 · Palais des Congrès Omar Bongo Ondimba, Libreville
+
+
+--------------------------------------------------------------------------------
+1. PRÉREQUIS TECHNIQUES
+--------------------------------------------------------------------------------
+Pour faire fonctionner le site sur votre machine ou votre serveur :
+
+  * Node.js : version 18.x, 20.x ou supérieure (LTS recommandée)
+    Vérifiez votre version avec : node -v
+  * npm : version 9.x ou supérieure (fourni avec Node.js)
+    Vérifiez avec : npm -v
+  * Un navigateur web moderne (Chrome, Firefox, Safari, Edge)
+
+
+--------------------------------------------------------------------------------
+2. INSTALLATION DES DÉPENDANCES
+--------------------------------------------------------------------------------
+Ouvrez votre terminal dans le dossier racine du projet (contenant package.json) :
+
+  1. Installez tous les modules Node.js nécessaires :
+     npm install
+
+  Cette commande va télécharger les bibliothèques indispensables (Express, Vite,
+  TypeScript, Tailwind, React, etc.).
+
+
+--------------------------------------------------------------------------------
+3. MODE DÉVELOPPEMENT (LANCEMENT LOCAL RAPIDE)
+--------------------------------------------------------------------------------
+Pour travailler sur le site et voir vos modifications en temps réel :
+
+  1. Lancez la commande :
+     npm run dev
+
+  2. Ouvrez votre navigateur à l'adresse suivante :
+     http://localhost:3000
+
+  Le serveur démarre immédiatement et écoute sur le port 3000.
+
+
+--------------------------------------------------------------------------------
+4. MODE PRODUCTION (SERVEUR NODE.JS / EXPRESS)
+--------------------------------------------------------------------------------
+Pour déployer le site sur un serveur de production (VPS, Cloud, Cloud Run, etc.) :
+
+  Étape 1 : Compiler et optimiser les fichiers du site
+  ---------------------------------------------------
+  Exécutez :
+     npm run build
+
+  Cette commande génère le dossier "dist/" contenant les pages HTML minifiées,
+  les scripts et les feuilles de style optimisées.
+
+  Étape 2 : Démarrer le serveur Node.js de production
+  ---------------------------------------------------
+  Exécutez :
+     npm start
+
+  Le fichier "server.ts" prend le relais avec Express :
+  - Il écoute sur le port défini par la variable d'environnement PORT (ou 3000 par défaut).
+  - Il dessert les routes d'API REST (/api/data, /api/register, /api/contact, etc.).
+  - Il sert les pages compilées et les assets statiques.
+
+
+--------------------------------------------------------------------------------
+5. PAGES DU SITE ET ACCÈS PRINCIPAUX
+--------------------------------------------------------------------------------
+
+  * Portail officiel public :
+    URL : http://localhost:3000/
+    Fichier source : index.html
+    Comprend : Présentation, Mot du Ministre Mark-Alexandre DOUMBA, Piliers 2026,
+    Agenda des 5 jours, Village du Numérique & Stands, Partenaires officiels,
+    Formulaire d'inscription & génération de badge instantané avec QR Code,
+    Salle de presse, FAQ et Infos pratiques.
+
+  * Panneau d'Administration officiel :
+    URL : http://localhost:3000/admin.html
+    Mot de passe d'accès : gabon2026
+    Fonctionnalités :
+    - Suivi et validation des inscrits en temps réel.
+    - Export des listes d'inscrits en format CSV / Excel pour le Protocole.
+    - Suivi des demandes d'accréditation presse et médias.
+    - Boîte de réception des messages de contact et demandes de stands.
+    - Éditeur direct du programme des 5 jours (enregistré en base sans coder).
+
+  * Mentions Légales & Confidentialité (page dédiée) :
+    URL : http://localhost:3000/mentions-legales.html
+    Accessible via le lien situé dans le pied de page du site.
+
+
+--------------------------------------------------------------------------------
+6. GESTION DES DONNÉES (BASE DE DONNÉES LOCALE JSON)
+--------------------------------------------------------------------------------
+Toutes les données du site sont stockées dans le fichier :
+  /public/data.json  (et synchronisées dans /data.json)
+
+Ce fichier conserve :
+  - Les informations officielles de l'événement (titre, dates, thème).
+  - La liste des participants inscrits et leurs badges uniques (GDW-2026-XXX).
+  - Les demandes d'accréditations médias (PRESS-2026-XXX).
+  - Les messages de contact et demandes de stands (MSG-2026-XXX).
+  - Le programme détaillé des 5 journées.
+  - La nomenclature officielle des partenaires.
+
+Pour sauvegarder votre base de données :
+Copiez simplement le fichier "data.json" sur un support sécurisé.
+
+
+--------------------------------------------------------------------------------
+7. DÉPLOIEMENT EN PRODUCTION SUR SERVEUR LINUX (VPS / NGINX / PM2)
+--------------------------------------------------------------------------------
+
+Option recommandée avec PM2 (gestionnaire de processus Node.js) :
+
+  1. Installer PM2 globalement :
+     npm install -g pm2
+
+  2. Compiler le projet :
+     npm run build
+
+  3. Démarrer le serveur en tâche de fond permanente :
+     pm2 start "npm start" --name "gabon-digital-week"
+
+  4. Configurer le redémarrage automatique en cas de reboot du serveur :
+     pm2 startup
+     pm2 save
+
+Exemple de configuration Reverse Proxy Nginx :
+  server {
+      listen 80;
+      server_name digitalweek.ga www.digitalweek.ga;
+
+      location / {
+          proxy_pass http://127.0.0.1:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+  }
+
+
+--------------------------------------------------------------------------------
+8. CONTACT TECHNIQUE & SUPPORT
+--------------------------------------------------------------------------------
+Pour toute question d'exploitation ou d'assistance :
+  - Ministère : contact@mendi.gouv.ga
+  - Salle de presse : presse@mendi.gouv.ga
+  - Libreville, République Gabonaise
+================================================================================
